@@ -7,6 +7,7 @@ def openFile(filename):
         fileList.append(block)
     f.close()
     return fileList
+
 def getInfoIndex(resultList):
     cellIndex = 0
     meshIndex = 0
@@ -16,11 +17,7 @@ def getInfoIndex(resultList):
         if "CELL_TYPES" in line:
             meshIndex = i
     return cellIndex,meshIndex
-            
-
-
-    f.close()
-    return fileList
+           
 def removeLine(fileList):
     removeCellList = []
     twoDCellList = []
@@ -46,6 +43,7 @@ def removeLine(fileList):
             resultCellList.append(line)
 
     return resultCellList,len(twoDCellList),len(twoDMeshList)
+
 def changeNumber(resultList,n2dc,n2dm,ci,mi):
     resultList[ci][1] = str(int(resultList[ci][1])-n2dc)
     resultList[ci][2] = str(int(resultList[ci][2])-n2dc*4)
